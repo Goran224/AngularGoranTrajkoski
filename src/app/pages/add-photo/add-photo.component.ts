@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PhotoModel } from 'src/app/models/Photo.model';
 import { PhotoService } from 'src/app/services/photo.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-photo',
   templateUrl: './add-photo.component.html',
@@ -32,6 +33,7 @@ export class AddPhotoComponent implements OnInit {
           next: (res) => {
             if (res) {
               form.resetForm({} as PhotoModel);
+              Swal.fire('Your Photo was successfully added', 'success');
               this.router.navigateByUrl('/photo-management');
             }
           },
