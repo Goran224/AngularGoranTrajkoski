@@ -1,0 +1,80 @@
+<div class="container">
+  <br />
+  <h1 style="margin-left: 60px; font-weight: 500">Add New Photo</h1>
+
+  <div class="add-form">
+    <form novalidate #addForm="ngForm" (ngSubmit)="doSaveNew(addForm)">
+      <mat-form-field style="margin-left: 60px">
+        <label>Photo Album Id </label>
+        <input
+          type="number"
+          matInput
+          [(ngModel)]="addInput.albumId"
+          name="albumId"
+          #albumId="ngModel"
+          required
+          placeholder="placeholder"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="margin-left: 60px">
+        <label>Photo Id</label>
+        <input
+          type="number"
+          matInput
+          [(ngModel)]="addInput.id"
+          name="id"
+          #id="ngModel"
+          required
+          placeholder="placeholder"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="margin-left: 60px">
+        <label>ThumbnailUrl</label>
+        <input
+          matInput
+          [(ngModel)]="addInput.thumbnailUrl"
+          name="thumbnailUrl"
+          #thumbnailUrl="ngModel"
+          required
+          placeholder="placeholder"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="margin-left: 60px">
+        <label>Pic Url </label>
+        <input
+          type="text"
+          matInput
+          [(ngModel)]="addInput.url"
+          name="url"
+          #url="ngModel"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="margin-left: 60px">
+        <label>Pic Title </label>
+        <input
+          type="text"
+          matInput
+          [(ngModel)]="addInput.title"
+          name="title"
+          #title="ngModel"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        style="margin-left: 60px"
+        [disabled]="addForm.invalid"
+      >
+        Зачувај
+      </button>
+    </form>
+  </div>
+</div>

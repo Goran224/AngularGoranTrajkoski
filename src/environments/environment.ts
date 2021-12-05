@@ -2,8 +2,11 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const CORE_API = 'http://jsonplaceholder.typicode.com/photos';
+
 export const environment = {
-  production: false
+  production: false,
+  coreApi: CORE_API,
 };
 
 /*

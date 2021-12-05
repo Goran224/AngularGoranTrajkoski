@@ -1,0 +1,19 @@
+.photo-card {
+  max-width: 200px;
+  margin-bottom: 5px;
+  border: 1px solid grey;
+}
+
+.spinner {
+  position: relative;
+  left: 46.5%;
+  top: 100px;
+}
+
+.card {
+  display: inline-block !important;
+}
+
+.photo-card {
+  float: left;
+}
