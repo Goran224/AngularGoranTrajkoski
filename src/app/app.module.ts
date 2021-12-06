@@ -12,9 +12,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { PhotoManagementComponent } from 'src/app/pages/photo-management/photo-management.component';
-import { AddPhotoComponent } from './pages/add-photo/add-photo.component';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

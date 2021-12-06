@@ -7,7 +7,7 @@
   <mat-spinner *ngIf="toggleSpinner" class="spinner"></mat-spinner>
   <mat-grid-list cols="4" rowHeight="1:1">
     <mat-grid-tile *ngFor="let photo of photos" class="card">
-      <mat-card class="photo-card">
+      <mat-card class="photo-card" [routerLink]="['/photo-details', photo.id]">
         <img
           mat-card-image
           src="{{ photo.thumbnailUrl }}"

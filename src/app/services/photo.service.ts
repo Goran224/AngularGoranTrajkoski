@@ -18,15 +18,18 @@ export class PhotoService {
     return this.httpClient.post<PhotoModel>(`${environment.coreApi}`, input);
   }
 
-  GetPhoto(id: string): Observable<PhotoModel> {
+  GetPhoto(id: number): Observable<PhotoModel> {
     return this.httpClient.get<PhotoModel>(`${environment.coreApi}/${id}`);
   }
 
-  UpdatePhoto(input: PhotoModel): Observable<PhotoModel> {
-    return this.httpClient.put<PhotoModel>(`${environment.coreApi}`, input);
+  UpdatePhoto(id: number, input: PhotoModel): Observable<PhotoModel> {
+    return this.httpClient.patch<PhotoModel>(
+      `${environment.coreApi}/${id}`,
+      input
+    );
   }
 
-  DeletePhoto(id: string): Observable<void> {
+  DeletePhoto(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${environment.coreApi}/${id}`);
   }
 }

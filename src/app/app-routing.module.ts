@@ -17,6 +17,21 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'photo-details',
+    loadChildren: () =>
+      import('src/app/pages/photo-details/photo-details.module').then(
+        (m) => m.PhotoDetailsModule
+      ),
+  },
+
+  {
+    path: 'photo-details/:id',
+    loadChildren: () =>
+      import('src/app/pages/photo-details/photo-details.module').then(
+        (m) => m.PhotoDetailsModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: '/photo-management',
     pathMatch: 'full',

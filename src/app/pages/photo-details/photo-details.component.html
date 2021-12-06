@@ -1,0 +1,120 @@
+<br />
+
+<mat-tab-group style="margin-left: 255px; margin-right: 300px" #tabGroup>
+  <mat-tab label="Photo Details">
+    <mat-grid-list cols="2" rowHeight="1:1" style="margin-top: -10px">
+      <mat-grid-tile>
+        <mat-card class="photo-card" style="margin-left: 60px">
+          <mat-card-title style="font-size: 20px"
+            >{{ input.id }} ({{ input.title }})</mat-card-title
+          >
+          <img
+            style="height: 310px; width: 440px"
+            mat-card-image
+            src="{{ input.url }}"
+            alt="Photo"
+          />
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-tab label="Edit Photo">
+        <br />
+        <div class="edit-form">
+          <form
+            novalidate
+            #inputForm="ngForm"
+            (ngSubmit)="save(inputForm)"
+            *ngIf="!displayChangePassModal"
+          >
+            <mat-form-field style="margin-left: 60px">
+              <mat-label>Photo Title</mat-label>
+              <input
+                matInput
+                [(ngModel)]="input.title"
+                name="title"
+                #title="ngModel"
+                required
+                placeholder="placeholder"
+              />
+              <mat-error
+                *ngIf="
+                  title && title.touched && title.errors && inputForm.submitted
+                "
+              >
+                <span *ngIf="title.errors['required']"
+                  >This field is required.</span
+                >
+              </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field style="margin-left: 60px">
+              <mat-label>Photo Url </mat-label>
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="input.url"
+                name="url"
+                #url="ngModel"
+                required
+              />
+              <mat-error
+                *ngIf="url && url.touched && url.errors && url.submitted"
+              >
+                <span *ngIf="url.errors['required']"
+                  >This field is required</span
+                >
+              </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field style="margin-left: 60px">
+              <mat-label>Thumbnail Url </mat-label>
+              <input
+                type="text"
+                matInput
+                [(ngModel)]="input.thumbnailUrl"
+                name="thumbnailUrl"
+                #thumbnailUrl="ngModel"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  thumbnailUrl &&
+                  thumbnailUrl.touched &&
+                  thumbnailUrl.errors &&
+                  thumbnailUrl.submitted
+                "
+              >
+                <span *ngIf="thumbnailUrl.errors['required']"
+                  >This field is required</span
+                >
+              </mat-error>
+            </mat-form-field>
+            <br />
+
+            <button
+              mat-raised-button
+              type="submit"
+              color="primary"
+              style="margin-left: 60px"
+            >
+              Save
+              <mat-icon>save</mat-icon>
+            </button>
+          </form>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Delete Photo">
+        <br />
+        <button
+          style="margin-left: 60px"
+          mat-raised-button
+          color="warn"
+          (click)="Delete(input.id)"
+        >
+          Delete Photo
+        </button>
+      </mat-tab>
+    </mat-grid-list></mat-tab
+  ></mat-tab-group
+>
